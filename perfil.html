@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Perfil — Hóng Yuán</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .auth-bg {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 100px 20px 40px;
+      position: relative; overflow: hidden;
+    }
+    .auth-bg::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(204,0,0,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(212,160,23,0.05) 0%, transparent 50%);
+    }
+    .auth-bg-pattern {
+      position: absolute; inset: 0; pointer-events: none;
+      font-family: var(--font-titulo); font-size: 200px;
+      color: rgba(255,255,255,0.012); overflow: hidden;
+      display: flex; flex-wrap: wrap; gap: 40px; padding: 20px;
+      align-content: flex-start; line-height: 1;
+    }
+
+    .auth-wrapper { position: relative; z-index: 2; width: 100%; max-width: 440px; }
+
+    .auth-top { text-align: center; margin-bottom: 32px; }
+    .auth-logo-text {
+      font-family: var(--font-titulo); font-size: 60px; color: var(--color-dorado);
+      display: block; line-height: 1;
+      text-shadow: 0 0 30px rgba(212,160,23,0.3);
+    }
+    .auth-top h2 {
+      font-family: var(--font-titulo); font-size: 24px;
+      color: var(--color-blanco); margin-top: 12px; font-weight: 400;
+    }
+    .auth-top p { color: rgba(255,255,255,0.4); font-size: 13px; margin-top: 6px; font-weight: 300; }
+
+    .auth-card {
+      background: rgba(17,17,17,0.95);
+      border: 1px solid var(--color-gris-borde);
+      border-radius: 16px;
+      padding: 40px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+
+    /* TABS */
+    .auth-tabs {
+      display: flex; background: #0d0d0d;
+      border-radius: 50px; padding: 4px; margin-bottom: 28px;
+      border: 1px solid var(--color-gris-borde);
+    }
+    .tab-btn {
+      flex: 1; padding: 10px; border: none; background: transparent;
+      color: rgba(255,255,255,0.4); font-family: var(--font-body);
+      font-size: 13px; letter-spacing: 1px; text-transform: uppercase;
+      cursor: pointer; border-radius: 50px; transition: var(--transicion);
+    }
+    .tab-btn.activo {
+      background: var(--color-rojo); color: white;
+      box-shadow: 0 2px 12px rgba(204,0,0,0.4);
+    }
+    .tab-btn:hover:not(.activo) { color: var(--color-blanco); }
+
+    /* FORMULARIOS */
+    .auth-form {
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .auth-form input {
+      background: #1a1a1a; border: 1px solid #2a2a2a;
+      color: var(--color-blanco); border-radius: 8px;
+      padding: 13px 16px; font-size: 14px; font-family: var(--font-body);
+      transition: border-color 0.3s ease; outline: none; width: 100%;
+    }
+    .auth-form input:focus {
+      border-color: var(--color-rojo);
+      box-shadow: 0 0 0 3px rgba(204,0,0,0.1);
+    }
+    .auth-form input::placeholder { color: rgba(255,255,255,0.25); }
+
+    .btn-auth {
+      width: 100%; padding: 14px; background: var(--color-rojo);
+      color: white; border: none; border-radius: 8px;
+      font-size: 14px; font-family: var(--font-body); font-weight: 600;
+      cursor: pointer; letter-spacing: 2px; text-transform: uppercase;
+      transition: background 0.3s, transform 0.2s;
+      margin-top: 4px;
+    }
+    .btn-auth:hover {
+      background: var(--color-rojo-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(204,0,0,0.35);
+    }
+
+    .link-forgot {
+      text-align: center; font-size: 12px; color: rgba(255,255,255,0.35);
+      text-decoration: none; letter-spacing: 0.5px; transition: color 0.3s;
+    }
+    .link-forgot:hover { color: var(--color-dorado); }
+
+    .divider {
+      display: flex; align-items: center; gap: 12px; margin: 4px 0;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--color-gris-borde);
+    }
+    .divider span { font-size: 11px; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
+
+    .btn-social {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 12px; background: #1a1a1a; border: 1px solid #2a2a2a;
+      color: var(--color-gris-claro); border-radius: 8px;
+      font-size: 13px; font-family: var(--font-body); cursor: pointer;
+      transition: var(--transicion); text-decoration: none;
+    }
+    .btn-social:hover { border-color: var(--color-gris-claro); color: white; background: #222; }
+
+    .form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    .password-strength { margin-top: -6px; }
+    .strength-bar { height: 3px; border-radius: 2px; background: var(--color-gris-borde); overflow: hidden; }
+    .strength-fill { height: 100%; border-radius: 2px; transition: width 0.3s, background 0.3s; width: 0; }
+
+    /* ÉXITO LOGIN */
+    #login-exito {
+      display: none; text-align: center; padding: 20px 0;
+    }
+    .login-exito-icon { font-size: 60px; margin-bottom: 16px; display: block; }
+    #login-exito h3 { font-family: var(--font-titulo); font-size: 28px; color: var(--color-dorado); margin-bottom: 8px; }
+    #login-exito p { color: var(--color-gris-claro); font-size: 14px; margin-bottom: 20px; }
+    #login-exito a {
+      display: inline-block; padding: 12px 32px; background: var(--color-rojo);
+      color: white; text-decoration: none; border-radius: 8px;
+      font-size: 13px; letter-spacing: 1px; font-weight: 600;
+      transition: background 0.3s;
+    }
+    #login-exito a:hover { background: var(--color-rojo-hover); }
+
+    .terms-text { font-size: 11px; color: rgba(255,255,255,0.3); text-align: center; line-height: 1.5; }
+    .terms-text a { color: var(--color-dorado); text-decoration: none; }
+
+    @media (max-width: 480px) {
+      .auth-card { padding: 28px 20px; }
+      .form-row-2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-symbol">人</div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <a href="index.html" class="nav-logo-text">鴻苑</a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="menu.html">Menú</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="perfil.html" class="nav-perfil" style="border-color: var(--color-rojo); color: var(--color-rojo);">Perfil</a>
+    <button class="hamburger" id="hamburger">☰</button>
+  </div>
+</nav>
+
+<div class="auth-bg">
+  <div class="auth-bg-pattern">
+    鴻苑龍鳳福壽喜財祥瑞禧樂康寧吉慶豐盛
+    鴻苑龍鳳福壽喜財祥瑞禧樂康寧吉慶豐盛
+    鴻苑龍鳳福壽喜財祥瑞禧樂康寧吉慶豐盛
+  </div>
+
+  <div class="auth-wrapper">
+    <div class="auth-top">
+      <span class="auth-logo-text">鴻苑</span>
+      <h2>Bienvenido de regreso</h2>
+      <p>Accede a tu cuenta para gestionar reservaciones y pedidos</p>
+    </div>
+
+    <div class="auth-card">
+      <!-- TABS -->
+      <div class="auth-tabs">
+        <button class="tab-btn activo" data-tab="login">Iniciar Sesión</button>
+        <button class="tab-btn" data-tab="registro">Registrarse</button>
+      </div>
+
+      <!-- LOGIN -->
+      <form id="form-login" class="auth-form">
+        <input type="email" id="login-email" placeholder="Correo electrónico" required>
+        <input type="password" id="login-password" placeholder="Contraseña" required>
+        <button type="submit" class="btn-auth">Iniciar Sesión</button>
+        <a href="#" class="link-forgot">¿Olvidaste tu contraseña?</a>
+        <div class="divider"><span>o continúa con</span></div>
+        <a href="#" class="btn-social">🔵 Continuar con Google</a>
+      </form>
+
+      <!-- REGISTRO (oculto por defecto) -->
+      <form id="form-registro" class="auth-form" style="display:none">
+        <div class="form-row-2">
+          <input type="text" placeholder="Nombre" required>
+          <input type="text" placeholder="Apellido" required>
+        </div>
+        <input type="email" placeholder="Correo electrónico" required>
+        <input type="tel" placeholder="Teléfono (opcional)">
+        <input type="password" id="reg-password" placeholder="Contraseña" required>
+        <div class="password-strength">
+          <div class="strength-bar"><div class="strength-fill" id="strength-fill"></div></div>
+        </div>
+        <input type="password" placeholder="Confirmar contraseña" required>
+        <button type="submit" class="btn-auth">Crear Cuenta</button>
+        <p class="terms-text">Al registrarte, aceptas nuestros <a href="#">Términos de Servicio</a> y <a href="#">Política de Privacidad</a>.</p>
+      </form>
+
+      <!-- ÉXITO -->
+      <div id="login-exito">
+        <span class="login-exito-icon">🏮</span>
+        <h3>¡Bienvenido!</h3>
+        <p>Has iniciado sesión correctamente en Hóng Yuán.</p>
+        <a href="index.html">Ir al inicio</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    loader.style.opacity = '0';
+    setTimeout(() => loader.remove(), 600);
+  });
+
+  // TABS
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('activo'));
+      btn.classList.add('activo');
+      const tab = btn.dataset.tab;
+      document.getElementById('form-login').style.display = tab === 'login' ? 'flex' : 'none';
+      document.getElementById('form-registro').style.display = tab === 'registro' ? 'flex' : 'none';
+    });
+  });
+
+  // LOGIN SUBMIT
+  document.getElementById('form-login').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-auth');
+    btn.textContent = 'Verificando...';
+    btn.disabled = true;
+    setTimeout(() => {
+      document.getElementById('form-login').style.display = 'none';
+      document.querySelector('.auth-tabs').style.display = 'none';
+      const exito = document.getElementById('login-exito');
+      exito.style.display = 'block';
+      exito.style.opacity = '0';
+      setTimeout(() => {
+        exito.style.transition = 'opacity 0.5s ease';
+        exito.style.opacity = '1';
+      }, 50);
+    }, 1000);
+  });
+
+  // REGISTRO SUBMIT
+  document.getElementById('form-registro').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-auth');
+    btn.textContent = 'Creando cuenta...';
+    btn.disabled = true;
+    setTimeout(() => {
+      document.getElementById('form-registro').style.display = 'none';
+      document.querySelector('.auth-tabs').style.display = 'none';
+      const exito = document.getElementById('login-exito');
+      exito.querySelector('h3').textContent = '¡Cuenta creada!';
+      exito.querySelector('p').textContent = 'Tu cuenta ha sido creada exitosamente. ¡Bienvenido a Hóng Yuán!';
+      exito.style.display = 'block';
+      exito.style.opacity = '0';
+      setTimeout(() => {
+        exito.style.transition = 'opacity 0.5s ease';
+        exito.style.opacity = '1';
+      }, 50);
+    }, 1200);
+  });
+
+  // INDICADOR FUERZA CONTRASEÑA
+  document.getElementById('reg-password')?.addEventListener('input', (e) => {
+    const val = e.target.value;
+    const fill = document.getElementById('strength-fill');
+    if (!fill) return;
+    let strength = 0;
+    if (val.length >= 8) strength++;
+    if (/[A-Z]/.test(val)) strength++;
+    if (/[0-9]/.test(val)) strength++;
+    if (/[^A-Za-z0-9]/.test(val)) strength++;
+    const colors = ['#cc0000', '#ff6600', '#ffaa00', '#00aa44'];
+    const widths = ['25%', '50%', '75%', '100%'];
+    fill.style.width = val.length ? widths[Math.max(0, strength - 1)] : '0';
+    fill.style.background = val.length ? colors[Math.max(0, strength - 1)] : '';
+  });
+</script>
+</body>
+</html>
