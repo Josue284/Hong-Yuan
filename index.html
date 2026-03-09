@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hóng Yuán — Auténtica Cocina China</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Estilos adicionales de inicio */
+    .especialidades-header { text-align: center; margin-bottom: 0; }
+    .especialidades-header .section-titulo::after { margin: 10px auto 0; }
+    .porque-header { text-align: center; }
+    .porque-header .section-titulo::after { margin: 10px auto 0; }
+    .ver-menu-wrap { text-align: center; margin-top: 48px; }
+    .btn-ver-menu {
+      display: inline-block; padding: 14px 40px;
+      border: 2px solid var(--color-dorado);
+      color: var(--color-dorado);
+      text-decoration: none; border-radius: 50px;
+      font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+      font-family: var(--font-body); font-weight: 600;
+      transition: var(--transicion);
+    }
+    .btn-ver-menu:hover {
+      background: var(--color-dorado); color: #0d0d0d;
+    }
+    .china-deco {
+      position: absolute; bottom: 10%; right: 5%;
+      font-family: var(--font-titulo); font-size: 200px;
+      color: rgba(204,0,0,0.05); z-index: 1; user-select: none;
+      pointer-events: none; line-height: 1;
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-symbol">鴻</div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <a href="index.html" class="nav-logo-text">鴻苑</a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Inicio</a></li>
+    <li><a href="menu.html">Menú</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="perfil.html" class="nav-perfil">Perfil</a>
+    <button class="hamburger" id="hamburger">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <img
+    src="https://images.unsplash.com/photo-1563245372-f21724e3856d?w=1920&q=80"
+    alt="Auténtica cocina china Hóng Yuán"
+    class="hero-img"
+    onerror="this.src='https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=1920&q=80'"
+  >
+  <div class="hero-overlay"></div>
+  <div class="china-deco">龍</div>
+  <div class="hero-content">
+    <p class="hero-subtitulo">Auténtica cocina china</p>
+    <div class="hero-deco">
+      <div class="hero-deco-line"></div>
+      <span class="hero-deco-symbol">🏮</span>
+      <div class="hero-deco-line"></div>
+    </div>
+    <h1 class="hero-titulo">Hóng Yuán</h1>
+    <p style="color:var(--color-gris-claro); font-size:15px; margin-bottom:32px; letter-spacing:1px; font-weight:300;">En cada bocado, una tradición milenaria</p>
+    <a href="menu.html" class="btn-menu-hero">Explorar Menú</a>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>↓</span>
+    <span>Descubrir</span>
+  </div>
+</section>
+
+<!-- NUESTRA HISTORIA -->
+<section class="section historia-section fade-in">
+  <div class="historia-grid">
+    <div class="historia-texto fade-in-left">
+      <p class="section-subtitulo">Nuestra Historia</p>
+      <h2 class="section-titulo">Un jardín rojo<br>en cada mesa</h2>
+      <p>Hóng Yuán, que significa "jardín rojo", nació de la pasión por llevar la auténtica gastronomía china a El Salvador. Desde nuestras recetas tradicionales hasta nuestras creaciones modernas, cada platillo es preparado con ingredientes frescos y técnicas milenarias transmitidas por generaciones.</p>
+      <p>Ubicados en el corazón de San Salvador, nuestra cocina viaja desde las bulliciosas calles de Shanghái hasta los serenos jardines de Sichuan, ofreciendo una experiencia culinaria única en el país que une culturas en torno a la mesa.</p>
+      <div class="historia-stat">
+        <div class="stat-item">
+          <span>15+</span>
+          <p>Años de tradición</p>
+        </div>
+        <div class="stat-item">
+          <span>50+</span>
+          <p>Recetas auténticas</p>
+        </div>
+        <div class="stat-item">
+          <span>4.9★</span>
+          <p>Calificación clientes</p>
+        </div>
+      </div>
+    </div>
+    <div class="historia-img-wrap fade-in-right">
+      <img
+        src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=800&q=80"
+        alt="Interior restaurante Hóng Yuán"
+        onerror="this.src='https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=800&q=80'"
+      >
+      <div class="historia-badge">
+        <span>鴻</span>
+        <p>Desde 2009</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section class="section especialidades-section">
+  <div class="especialidades-header fade-in">
+    <p class="section-subtitulo">Lo más solicitado</p>
+    <h2 class="section-titulo">Especialidades Destacadas</h2>
+  </div>
+  <div class="especialidades-grid">
+    <div class="card-platillo fade-in fade-in-delay-1">
+      <div class="card-img-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=600&q=80"
+          alt="Burrito Chino"
+          onerror="this.src='https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600'"
+        >
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Principal</span>
+        <h3 class="card-nombre">Burrito Chino</h3>
+        <span class="card-precio">$8.99</span>
+        <p class="card-desc">Crujientes rollitos de primavera rellenos de cerdo molido, zanahoria y champiñones shiitake. Servidos con salsa agridulce de ciruela.</p>
+      </div>
+    </div>
+    <div class="card-platillo fade-in fade-in-delay-2">
+      <div class="card-img-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80"
+          alt="Pato Pekín"
+          onerror="this.src='https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600'"
+        >
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Especialidad</span>
+        <h3 class="card-nombre">Pato Pekín</h3>
+        <span class="card-precio">$14.99</span>
+        <p class="card-desc">Pato lacado con piel crujiente, tortillas de trigo, pepino, cebollín y salsa hoisin. Tradición milenaria en cada bocado.</p>
+      </div>
+    </div>
+    <div class="card-platillo fade-in fade-in-delay-3">
+      <div class="card-img-wrap">
+        <img
+          src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=600&q=80"
+          alt="Dim Sum"
+          onerror="this.src='https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600'"
+        >
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Principal</span>
+        <h3 class="card-nombre">Dim Sum Surtido</h3>
+        <span class="card-precio">$12.99</span>
+        <p class="card-desc">Selección de 6 dumplings al vapor: cerdo y jengibre, camarón, y vegetales. Servidos con salsa ponzu y aceite de sésamo.</p>
+      </div>
+    </div>
+  </div>
+  <div class="ver-menu-wrap fade-in">
+    <a href="menu.html" class="btn-ver-menu">Ver Menú Completo</a>
+  </div>
+</section>
+
+<!-- POR QUÉ ELEGIRNOS -->
+<section class="section porque-section">
+  <div class="porque-header fade-in">
+    <p class="section-subtitulo">Nuestros valores</p>
+    <h2 class="section-titulo">¿Por qué elegirnos?</h2>
+  </div>
+  <div class="porque-grid">
+    <div class="porque-card fade-in fade-in-delay-1">
+      <span class="porque-icon">🍜</span>
+      <h3>Recetas Auténticas</h3>
+      <p>Cada platillo sigue recetas tradicionales preservadas por generaciones de chefs expertos, garantizando una experiencia gastronómica genuina y memorable.</p>
+    </div>
+    <div class="porque-card fade-in fade-in-delay-2">
+      <span class="porque-icon">🥬</span>
+      <h3>Ingredientes Frescos</h3>
+      <p>Seleccionamos cuidadosamente ingredientes frescos y de temporada, importando especias y condimentos directamente de China para mayor autenticidad.</p>
+    </div>
+    <div class="porque-card fade-in fade-in-delay-3">
+      <span class="porque-icon">🏮</span>
+      <h3>Ambiente Único</h3>
+      <p>Nuestro espacio crea una atmósfera que evoca los restaurantes tradicionales de Beijing, con decoración auténtica y música ambiente cuidadosamente seleccionada.</p>
+    </div>
+    <div class="porque-card fade-in">
+      <span class="porque-icon">⭐</span>
+      <h3>Servicio Excepcional</h3>
+      <p>Nuestro equipo está entrenado para brindar una atención cálida y personalizada, asegurando que cada visita sea una experiencia perfecta e irrepetible.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER RESERVA -->
+<section class="reserva-section fade-in">
+  <div class="reserva-bg"></div>
+  <div class="reserva-content">
+    <p style="color:var(--color-dorado); letter-spacing:3px; font-size:13px; text-transform:uppercase; margin-bottom:16px; font-weight:300;">Reserve su mesa</p>
+    <h2>Una experiencia<br>que no olvidará</h2>
+    <p>Reserva ahora y déjate llevar por los sabores de la auténtica cocina china.<br>Grupos, celebraciones y eventos especiales bienvenidos.</p>
+    <div class="reserva-btns">
+      <a href="contacto.html" class="btn-reserva-solid">Reservar Ahora</a>
+      <a href="menu.html" class="btn-reserva-outline">Ver Menú</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="footer-logo-text">鴻苑</span>
+      <p>Hóng Yuán — Auténtica cocina china desde 2009. El primer y más distinguido restaurante chino de El Salvador, donde cada platillo es un viaje al corazón de China.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <a href="index.html">Inicio</a>
+      <a href="menu.html">Menú</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="perfil.html">Mi Perfil</a>
+    </div>
+    <div class="footer-col">
+      <h4>Horario</h4>
+      <a href="#">Lun–Vie: 12:00–22:00</a>
+      <a href="#">Sáb–Dom: 11:00–23:00</a>
+      <a href="#">Festivos: 12:00–21:00</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <a href="#">📍 Av. del Dragón Rojo #88, San Salvador</a>
+      <a href="#">📞 +503 1234 5678</a>
+      <a href="#">✉️ reservas@hongyuan.sv</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Hóng Yuán · San Salvador, El Salvador. Todos los derechos reservados. Hecho con <span>♥</span> y mucho wok.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    loader.style.opacity = '0';
+    setTimeout(() => loader.remove(), 600);
+  });
+</script>
+</body>
+</html>

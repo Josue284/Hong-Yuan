@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto — Hóng Yuán</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .contacto-section {
+      padding: 80px 6%;
+    }
+
+    .contacto-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    /* Columna info */
+    .info-col h3 {
+      font-family: var(--font-titulo);
+      font-size: 28px;
+      color: var(--color-dorado);
+      margin-bottom: 32px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--color-gris-borde);
+    }
+
+    .info-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .info-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(204, 0, 0, 0.12);
+      border: 1px solid rgba(204, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .info-item-text p {
+      margin: 0;
+    }
+
+    .info-item-text p:first-child {
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--color-gris-claro);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .info-item-text p:last-child {
+      color: var(--color-blanco);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .redes-sociales {
+      display: flex;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .red-btn {
+      padding: 8px 18px;
+      border-radius: 50px;
+      border: 1px solid var(--color-gris-borde);
+      color: var(--color-gris-claro);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 1px;
+      transition: var(--transicion);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .red-btn:hover {
+      border-color: var(--color-rojo);
+      color: var(--color-rojo);
+    }
+
+    .mapa-wrap {
+      margin-top: 32px;
+      border-radius: var(--radio-tarjeta);
+      overflow: hidden;
+      border: 1px solid var(--color-gris-borde);
+    }
+
+    .mapa-wrap iframe {
+      display: block;
+      width: 100%;
+      height: 220px;
+      filter: grayscale(80%) invert(90%) hue-rotate(180deg);
+    }
+
+    /* Columna formulario */
+    .form-col {
+      background: #111;
+      border-radius: var(--radio-tarjeta);
+      padding: 40px;
+      border: 1px solid var(--color-gris-borde);
+    }
+
+    .form-col h3 {
+      font-family: var(--font-titulo);
+      font-size: 28px;
+      color: var(--color-dorado);
+      margin-bottom: 8px;
+    }
+
+    .form-col>p {
+      color: var(--color-gris-claro);
+      font-size: 13px;
+      margin-bottom: 28px;
+      font-weight: 300;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--color-gris-claro);
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      color: var(--color-blanco);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-family: var(--font-body);
+      transition: border-color 0.3s ease;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--color-rojo);
+      box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.1);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.25);
+    }
+
+    .form-group select {
+      color: var(--color-gris-claro);
+      cursor: pointer;
+    }
+
+    .form-group select option {
+      background: #1a1a1a;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .error-msg {
+      color: var(--color-rojo);
+      font-size: 12px;
+      margin-top: 6px;
+      display: block;
+      font-weight: 400;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .btn-enviar {
+      width: 100%;
+      padding: 14px;
+      background: var(--color-rojo);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: var(--font-body);
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-enviar:hover {
+      background: var(--color-rojo-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-enviar:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Mensaje éxito */
+    #exito-msg {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 300px;
+      text-align: center;
+      gap: 16px;
+    }
+
+    .exito-card span {
+      font-size: 60px;
+    }
+
+    .exito-card h3 {
+      font-family: var(--font-titulo);
+      font-size: 32px;
+      color: var(--color-dorado);
+      margin: 12px 0 8px;
+    }
+
+    .exito-card p {
+      color: var(--color-gris-claro);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .exito-card .btn-volver {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 32px;
+      border: 1px solid var(--color-gris-borde);
+      color: var(--color-gris-claro);
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 13px;
+      letter-spacing: 1px;
+      transition: var(--transicion);
+    }
+
+    .exito-card .btn-volver:hover {
+      border-color: var(--color-rojo);
+      color: var(--color-rojo);
+    }
+
+    @media (max-width: 768px) {
+      .contacto-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .form-col {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-symbol">联</div>
+  </div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-logo">
+      <a href="index.html" class="nav-logo-text">鴻苑</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="menu.html">Menú</a></li>
+      <li><a href="contacto.html" class="active">Contacto</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="perfil.html" class="nav-perfil">Perfil</a>
+      <button class="hamburger" id="hamburger">☰</button>
+    </div>
+  </nav>
+
+  <!-- BANNER -->
+  <section class="page-banner" data-symbol="联">
+    <p class="section-subtitulo">Estamos para servirte</p>
+    <h2>Contáctanos</h2>
+    <p>Reservaciones, consultas o pedidos especiales — con gusto te atendemos</p>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="contacto-section">
+    <div class="contacto-grid">
+
+      <!-- COLUMNA IZQUIERDA -->
+      <div class="info-col fade-in-left">
+        <h3>Información de Contacto</h3>
+
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div class="info-item-text">
+            <p>Dirección</p>
+            <p>Av. del Dragón Rojo #88, Col. Escalón, San Salvador, El Salvador</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div class="info-item-text">
+            <p>Teléfono</p>
+            <p>+503 1234 5678</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">✉️</div>
+          <div class="info-item-text">
+            <p>Correo Electrónico</p>
+            <p>reservas@hongyuan.sv</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">🕐</div>
+          <div class="info-item-text">
+            <p>Horario de Atención</p>
+            <p>Lun–Vie: 12:00 – 22:00<br>Sáb–Dom: 11:00 – 23:00</p>
+          </div>
+        </div>
+
+        <div class="info-item">
+          <div class="info-icon">📱</div>
+          <div class="info-item-text">
+            <p>Redes Sociales</p>
+            <div class="redes-sociales">
+              <a href="#" class="red-btn">📘 Facebook</a>
+              <a href="#" class="red-btn">📷 Instagram</a>
+              <a href="#" class="red-btn">🎵 TikTok</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mapa-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30706.071064688!2d-89.2404!3d13.6929!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f6330017a0dab7f%3A0x1f5a7b8b3e3e3e3e!2sSan%20Salvador%2C%20El%20Salvador!5e0!3m2!1ses!2ssv!4v1700000000000!5m2!1ses!2ssv"
+            style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación Hóng Yuán — San Salvador">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- COLUMNA DERECHA: FORMULARIO -->
+      <div class="form-col fade-in-right">
+        <h3>Envíanos un Mensaje</h3>
+        <p>Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas.</p>
+
+        <form id="form-contacto">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre Completo *</label>
+              <input type="text" id="nombre" placeholder="Tu nombre">
+              <span class="error-msg" id="error-nombre"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Correo Electrónico *</label>
+              <input type="email" id="email" placeholder="tu@email.com">
+              <span class="error-msg" id="error-email"></span>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" placeholder="+503 1234 5678">
+            </div>
+            <div class="form-group">
+              <label for="asunto">Asunto *</label>
+              <select id="asunto">
+                <option value="" disabled selected>Selecciona una opción</option>
+                <option value="reservacion">🍽 Reservación</option>
+                <option value="pedido">📦 Pedido Especial</option>
+                <option value="informacion">ℹ️ Información General</option>
+                <option value="otro">💬 Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="mensaje">Mensaje *</label>
+            <textarea id="mensaje" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
+            <span class="error-msg" id="error-mensaje"></span>
+          </div>
+
+          <button type="submit" class="btn-enviar">Enviar Mensaje</button>
+        </form>
+
+        <div id="exito-msg">
+          <div class="exito-card">
+            <span>🏮</span>
+            <h3>¡Mensaje enviado!</h3>
+            <p>Gracias por contactarnos.<br>Nos pondremos en contacto contigo muy pronto.</p>
+            <a href="index.html" class="btn-volver">← Volver al inicio</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="footer-logo-text">鴻苑</span>
+        <p>Hóng Yuán — Auténtica cocina china desde 2009. El primer y más distinguido restaurante chino de El Salvador.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <a href="index.html">Inicio</a>
+        <a href="menu.html">Menú</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="perfil.html">Mi Perfil</a>
+      </div>
+      <div class="footer-col">
+        <h4>Horario</h4>
+        <a href="#">Lun–Vie: 12:00–22:00</a>
+        <a href="#">Sáb–Dom: 11:00–23:00</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="#">📍 Av. del Dragón Rojo #88, San Salvador</a>
+        <a href="#">📞 +503 1234 5678</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 Hóng Yuán · San Salvador, El Salvador. Todos los derechos reservados. Hecho con <span>♥</span> y mucho
+        wok.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/contacto.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      loader.style.opacity = '0';
+      setTimeout(() => loader.remove(), 600);
+    });
+  </script>
+</body>
+
+</html>

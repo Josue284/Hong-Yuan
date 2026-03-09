@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú — Hóng Yuán</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-symbol">菜</div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <a href="index.html" class="nav-logo-text">鴻苑</a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="menu.html" class="active">Menú</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="perfil.html" class="nav-perfil">Perfil</a>
+    <button class="hamburger" id="hamburger">☰</button>
+  </div>
+</nav>
+
+<!-- BANNER -->
+<section class="page-banner" data-symbol="食">
+  <p class="section-subtitulo">Auténtica gastronomía china</p>
+  <h2>Nuestro Menú</h2>
+  <p>Descubre sabores que viajan desde las cocinas de Shanghai y Sichuan hasta tu mesa</p>
+</section>
+
+<!-- BÚSQUEDA -->
+<div class="menu-search">
+  <input type="text" id="buscador" placeholder="🔍  Buscar platillo o ingrediente...">
+</div>
+
+<!-- FILTROS -->
+<div class="filtros">
+  <button class="filtro-btn activo" data-filtro="todos">🍽 Todos</button>
+  <button class="filtro-btn" data-filtro="principal">🥡 Principales</button>
+  <button class="filtro-btn" data-filtro="postre">🍡 Postres</button>
+  <button class="filtro-btn" data-filtro="bebida">🍵 Bebidas</button>
+</div>
+
+<!-- GRID PLATILLOS -->
+<div class="platillos-grid" id="platillosGrid">
+
+  <!-- ── PRINCIPALES ── -->
+
+  <div class="card-platillo" data-categoria="principal" data-nombre="burrito chino rollitos de primavera">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1562802378-063ec186a863?w=600&q=80" alt="Burrito Chino" onerror="this.src='https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Burrito Chino" data-precio="8.99"
+        data-img="https://images.unsplash.com/photo-1562802378-063ec186a863?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Principal</span>
+      <h3 class="card-nombre">Burrito Chino</h3>
+      <span class="card-precio">$8.99</span>
+      <p class="card-desc">Crujientes rollitos de primavera rellenos de cerdo molido, zanahoria, repollo y champiñones shiitake, fritos hasta alcanzar un dorado perfecto. Servidos con salsa agridulce de ciruela.</p>
+    </div>
+  </div>
+
+  <div class="card-platillo" data-categoria="principal" data-nombre="pollo kung pao cacahuates sichuan">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1604909052743-94e838986d24?w=600&q=80" alt="Pollo Kung Pao" onerror="this.src='https://images.unsplash.com/photo-1547592180-85f173990554?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Pollo Kung Pao" data-precio="10.99"
+        data-img="https://images.unsplash.com/photo-1604909052743-94e838986d24?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Principal</span>
+      <h3 class="card-nombre">Pollo Kung Pao</h3>
+      <span class="card-precio">$10.99</span>
+      <p class="card-desc">Pollo salteado con cacahuates, chiles secos y vegetales en salsa agridulce picante. Clásico indispensable de la cocina de Sichuan.</p>
+    </div>
+  </div>
+
+  <div class="card-platillo" data-categoria="principal" data-nombre="cerdo agridulce pimientos piña">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=600&q=80" alt="Cerdo Agridulce" onerror="this.src='https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Cerdo Agridulce" data-precio="11.99"
+        data-img="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Principal</span>
+      <h3 class="card-nombre">Cerdo Agridulce</h3>
+      <span class="card-precio">$11.99</span>
+      <p class="card-desc">Trozos de cerdo empanizados bañados en salsa agridulce con pimientos, cebolla y piña. Brillante, aromático e irresistible.</p>
+    </div>
+  </div>
+
+  <div class="card-platillo" data-categoria="principal" data-nombre="arroz frito especial camarones pollo huevo">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=600&q=80" alt="Arroz Frito Especial" onerror="this.src='https://images.unsplash.com/photo-1547592180-85f173990554?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Arroz Frito Especial" data-precio="9.99"
+        data-img="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Principal</span>
+      <h3 class="card-nombre">Arroz Frito Especial</h3>
+      <span class="card-precio">$9.99</span>
+      <p class="card-desc">Arroz wok con camarones, pollo, huevo, cebollín y salsa de soya. La receta más solicitada de nuestra cocina.</p>
+    </div>
+  </div>
+
+  <div class="card-platillo" data-categoria="principal" data-nombre="dim sum dumplings vapor camarón cerdo jengibre">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=600&q=80" alt="Dim Sum Surtido" onerror="this.src='https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Dim Sum Surtido 6 pzas" data-precio="12.99"
+        data-img="https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Especialidad</span>
+      <h3 class="card-nombre">Dim Sum Surtido 6 pzas</h3>
+      <span class="card-precio">$12.99</span>
+      <p class="card-desc">Selección de 6 dumplings al vapor: cerdo y jengibre, camarón, y vegetales. Servidos con salsa ponzu y aceite de sésamo.</p>
+    </div>
+  </div>
+
+  <div class="card-platillo" data-categoria="principal" data-nombre="pato pekín lacado hoisin tortillas">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=600&q=80" alt="Pato Pekín" onerror="this.src='https://images.unsplash.com/photo-1552566626-52f8b828add9?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Pato Pekín media porción" data-precio="14.99"
+        data-img="https://images.unsplash.com/photo-1547592180-85f173990554?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Tradición</span>
+      <h3 class="card-nombre">Pato Pekín ½ porción</h3>
+      <span class="card-precio">$14.99</span>
+      <p class="card-desc">Pato lacado con piel crujiente, tortillas de trigo, pepino, cebollín y salsa hoisin. Tradición milenaria en cada bocado.</p>
+    </div>
+  </div>
+
+  <!-- ── POSTRES ── -->
+
+  <div class="card-platillo" data-categoria="postre" data-nombre="pastel tofu seda jengibre sésamo">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80" alt="Pastel de Tofu de Seda" onerror="this.src='https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Pastel de Tofu de Seda" data-precio="8.99"
+        data-img="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Postre</span>
+      <h3 class="card-nombre">Pastel de Tofu de Seda</h3>
+      <span class="card-precio">$8.99</span>
+      <p class="card-desc">Tofu de seda bañado en almíbar de jengibre y azúcar morena, decorado con semillas de sésamo tostado. Ligero y tradicional.</p>
+    </div>
+  </div>
+
+  <div class="card-platillo" data-categoria="postre" data-nombre="pastel de luna yuèbǐng frijol rojo yema">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?w=600&q=80" alt="Pastel de Luna" onerror="this.src='https://images.unsplash.com/photo-1547592180-85f173990554?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Pastel de Luna Yuèbǐng" data-precio="5.99"
+        data-img="https://images.unsplash.com/photo-1574484284002-952d92456975?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Postre</span>
+      <h3 class="card-nombre">Pastel de Luna Yuèbǐng</h3>
+      <span class="card-precio">$5.99</span>
+      <p class="card-desc">Pastel tradicional relleno de pasta de frijol rojo o yema salada. Símbolo del Festival del Medio Otoño. Denso y ceremonial.</p>
+    </div>
+  </div>
+
+  <div class="card-platillo" data-categoria="postre" data-nombre="rollo chocolate nutella almendras crepe">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&q=80" alt="Rollo de Chocolate y Nutella" onerror="this.src='https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Rollo de Chocolate y Nutella" data-precio="5.99"
+        data-img="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Postre</span>
+      <h3 class="card-nombre">Rollo de Chocolate y Nutella</h3>
+      <span class="card-precio">$5.99</span>
+      <p class="card-desc">Crepe chino relleno de Nutella y chocolate, enrollado y decorado con almendras fileteadas tostadas.</p>
+    </div>
+  </div>
+
+  <div class="card-platillo" data-categoria="postre" data-nombre="bolas sésamo jiān duī arroz glutinoso frijol">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?w=600&q=80" alt="Bolas de Sésamo" onerror="this.src='https://images.unsplash.com/photo-1574484284002-952d92456975?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Bolas de Sésamo Jiān Duī" data-precio="5.99"
+        data-img="https://images.unsplash.com/photo-1559847844-5315695dadae?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Postre</span>
+      <h3 class="card-nombre">Bolas de Sésamo Jiān Duī</h3>
+      <span class="card-precio">$5.99</span>
+      <p class="card-desc">Bolitas de arroz glutinoso fritas, cubiertas de sésamo y rellenas de pasta dulce de frijol negro.</p>
+    </div>
+  </div>
+
+  <div class="card-platillo" data-categoria="postre" data-nombre="nian gao pastel arroz glutinoso año nuevo">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1600626333591-64e1f71d0d96?w=600&q=80" alt="Nian Gao" onerror="this.src='https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Nian Gao" data-precio="5.99"
+        data-img="https://images.unsplash.com/photo-1600626333591-64e1f71d0d96?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Postre Tradicional</span>
+      <h3 class="card-nombre">Nian Gao</h3>
+      <span class="card-precio">$5.99</span>
+      <p class="card-desc">Pastel de arroz glutinoso al vapor, suave y ligeramente dulce. Tradicional en Año Nuevo Chino.</p>
+    </div>
+  </div>
+
+  <div class="card-platillo" data-categoria="postre" data-nombre="sopa frijoles rojos hóng dòu tāng dulce mandarina">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80" alt="Sopa de Frijoles Rojos" onerror="this.src='https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Sopa de Frijoles Rojos" data-precio="5.99"
+        data-img="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Postre</span>
+      <h3 class="card-nombre">Hóng Dòu Tāng</h3>
+      <span class="card-precio">$5.99</span>
+      <p class="card-desc">Sopa dulce de frijol mungo con cáscaras de mandarina y semillas de loto. Perfecta después de la cena, caliente o fría.</p>
+    </div>
+  </div>
+
+  <!-- ── BEBIDAS ── -->
+
+  <div class="card-platillo" data-categoria="bebida" data-nombre="té jazmín lychee verde frío pétalos">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600&q=80" alt="Té de Jazmín con Lychee" onerror="this.src='https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Té de Jazmín con Lychee" data-precio="5.99"
+        data-img="https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Bebida</span>
+      <h3 class="card-nombre">Té de Jazmín con Lychee</h3>
+      <span class="card-precio">$5.99</span>
+      <p class="card-desc">Té verde de jazmín servido frío con jarabe natural de lychee y pétalos secos. Refrescante y aromático.</p>
+    </div>
+  </div>
+
+  <div class="card-platillo" data-categoria="bebida" data-nombre="bubble tea taro tapioca perlas leche">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Bubble Tea de Taro" onerror="this.src='https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Bubble Tea de Taro" data-precio="6.99"
+        data-img="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Bebida</span>
+      <h3 class="card-nombre">Bubble Tea de Taro</h3>
+      <span class="card-precio">$6.99</span>
+      <p class="card-desc">Leche de taro con perlas de tapioca negras. Cremoso, dulce y con textura única. Servido frío con popote ancho.</p>
+    </div>
+  </div>
+
+  <div class="card-platillo" data-categoria="bebida" data-nombre="agua jamaica jengibre fresco antioxidante">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600&q=80" alt="Agua de Jamaica con Jengibre" onerror="this.src='https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Agua de Jamaica con Jengibre" data-precio="4.99"
+        data-img="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Bebida</span>
+      <h3 class="card-nombre">Jamaica con Jengibre</h3>
+      <span class="card-precio">$4.99</span>
+      <p class="card-desc">Infusión natural de jamaica con toque de jengibre fresco. Sin azúcar añadida, refrescante y antioxidante.</p>
+    </div>
+  </div>
+
+  <div class="card-platillo" data-categoria="bebida" data-nombre="limonada yuzu miel menta cítrica floral artesanal">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=600&q=80" alt="Limonada de Yuzu" onerror="this.src='https://images.unsplash.com/photo-1544145945-f90425340c7e?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Limonada de Yuzu" data-precio="5.99"
+        data-img="https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Bebida</span>
+      <h3 class="card-nombre">Limonada de Yuzu</h3>
+      <span class="card-precio">$5.99</span>
+      <p class="card-desc">Limonada artesanal con jugo de yuzu, miel natural y menta fresca. Cítrica, floral y perfecta para acompañar cualquier platillo.</p>
+    </div>
+  </div>
+
+  <div class="card-platillo" data-categoria="bebida" data-nombre="gusanos seda salteados ajo jengibre ostión especialidad exótica">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80" alt="Gusanos de Seda Salteados" onerror="this.src='https://images.unsplash.com/photo-1563245372-f21724e3856d?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Gusanos de Seda Salteados" data-precio="5.99"
+        data-img="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">🔥 Especialidad Exótica</span>
+      <h3 class="card-nombre">Gusanos de Seda Salteados</h3>
+      <span class="card-precio">$5.99</span>
+      <p class="card-desc">Salteados con ajo, jengibre y salsa de ostión. Textura crujiente y sabor umami profundo. ¿Te atreves?</p>
+    </div>
+  </div>
+
+  <div class="card-platillo" data-categoria="bebida" data-nombre="té negro oolong leche condensada hong kong estilo">
+    <div class="card-img-wrap">
+      <img src="https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=600&q=80" alt="Té Negro Estilo Hong Kong" onerror="this.src='https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=600'">
+      <button class="btn-carrito-overlay" onclick="agregarAlCarrito(this)"
+        data-nombre="Té Estilo Hong Kong" data-precio="5.99"
+        data-img="https://images.unsplash.com/photo-1597318181409-cf64d0b5d8a2?w=120">
+        + Agregar al Pedido
+      </button>
+    </div>
+    <div class="card-body">
+      <span class="card-tag">Bebida</span>
+      <h3 class="card-nombre">Té Estilo Hong Kong</h3>
+      <span class="card-precio">$5.99</span>
+      <p class="card-desc">Mezcla de té negro fuerte con leche evaporada, servido caliente o sobre hielo. Cremoso, intenso y con el alma de las calles de Hong Kong.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- CARRITO FLOTANTE -->
+<div id="carrito-icono" onclick="toggleCarrito()">
+  🛒 <span id="carrito-contador">0</span>
+</div>
+
+<!-- OVERLAY -->
+<div id="carrito-overlay"></div>
+
+<!-- PANEL CARRITO -->
+<div id="carrito-panel" class="carrito-cerrado">
+  <div class="carrito-header">
+    <h3>Tu Pedido</h3>
+    <button onclick="toggleCarrito()">✕</button>
+  </div>
+  <div id="carrito-items"></div>
+  <div class="carrito-footer">
+    <p>Total: <span id="carrito-total">$0.00</span></p>
+    <button class="btn-pagar">Proceder al Pago</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="footer-logo-text">鴻苑</span>
+      <p>Hóng Yuán — Auténtica cocina china desde 2009. El primer y más distinguido restaurante chino de El Salvador, donde cada platillo es un viaje al corazón de China.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navegación</h4>
+      <a href="index.html">Inicio</a>
+      <a href="menu.html">Menú</a>
+      <a href="contacto.html">Contacto</a>
+      <a href="perfil.html">Mi Perfil</a>
+    </div>
+    <div class="footer-col">
+      <h4>Horario</h4>
+      <a href="#">Lun–Vie: 12:00–22:00</a>
+      <a href="#">Sáb–Dom: 11:00–23:00</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <a href="#">📍 Av. del Dragón Rojo #88, San Salvador</a>
+      <a href="#">📞 +503 1234 5678</a>
+      <a href="#">✉️ reservas@hongyuan.sv</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Hóng Yuán · San Salvador, El Salvador. Todos los derechos reservados. Hecho con <span>♥</span> y mucho wok.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/menu.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    loader.style.opacity = '0';
+    setTimeout(() => loader.remove(), 600);
+  });
+</script>
+</body>
+</html>
